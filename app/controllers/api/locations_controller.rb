@@ -2,7 +2,7 @@ class Api::LocationsController < ApplicationController
   before_action :set_location, except: [:index, :create]
   
   def index
-    if nerd_type == params[:nerd_type]
+    if nerd_type = params[:nerd_type]
       render json: Location.all.where(nerd_type: nerd_type)
     else
       render json: Location.all

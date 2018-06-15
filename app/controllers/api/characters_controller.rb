@@ -2,7 +2,7 @@ class Api::CharactersController < ApplicationController
   before_action :set_character, except: [:index, :create]
   
   def index
-    if nerd_type == params[:nerd_type]
+    if nerd_type = params[:nerd_type]
       render json: Character.all.where(nerd_type: nerd_type)
     else
       render json: Character.all
